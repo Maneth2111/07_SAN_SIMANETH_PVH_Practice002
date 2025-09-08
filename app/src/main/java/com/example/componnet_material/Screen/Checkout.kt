@@ -37,11 +37,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Checkout(onClose: () -> Unit){
+fun Checkout(onClose: () -> Unit,navController: NavController){
     Column(
         modifier = Modifier.padding(16.dp).systemBarsPadding(),
     ) {
@@ -102,7 +103,7 @@ fun Checkout(onClose: () -> Unit){
         }
         Spacer(modifier = Modifier.height(20.dp))
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { navController.navigate("Accept") },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(56.dp),

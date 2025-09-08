@@ -29,6 +29,7 @@ import com.example.componnet_material.Screen.Account
 import com.example.componnet_material.Screen.CartScreen
 import com.example.componnet_material.Screen.Explore
 import com.example.componnet_material.Screen.Favorite
+import com.example.componnet_material.Screen.Filter
 import com.example.componnet_material.Screen.Shop
 
 @Preview(showBackground = true, showSystemUi = true)
@@ -45,10 +46,10 @@ fun MainScreen() {
             modifier = Modifier.padding(innerPadding)
         ){
             composable("Shop") { Shop() }
-            composable("Explore") { Explore() }
+            composable("Explore") { Explore(navigation) }
             composable("Account"){ Account() }
             composable("Favourite"){ Favorite() }
-            composable("Cart"){ CartScreen() }
+            composable("Cart"){ CartScreen(navigation) }
         }
 
     }

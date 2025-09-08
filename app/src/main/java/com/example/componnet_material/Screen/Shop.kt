@@ -1,6 +1,7 @@
 package com.example.componnet_material.Screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -37,12 +38,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.componnet_material.R
 
 @Composable
@@ -77,11 +80,15 @@ val groceriesProducts = listOf(
 
 
 @Composable
-fun ProductCard(product: Product) {
+fun ProductCard(product: Product, navController: NavController) {
     Card(
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
-            .width(160.dp),
+            .width(160.dp)
+            .clickable {
+                navController.navigate("ProductDetails")
+            },
+
         colors = CardDefaults.cardColors(Color.White),
         border = CardDefaults.outlinedCardBorder(),
     ) {
@@ -134,7 +141,7 @@ fun ProductList(products: List<Product>) {
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         items(products.size) { index ->
-            ProductCard(product = products[index])
+            ProductCard(product = products[index], navController = NavController(context = LocalContext.current))
         }
 
 

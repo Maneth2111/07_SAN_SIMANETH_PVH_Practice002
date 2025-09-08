@@ -1,6 +1,7 @@
 package com.example.componnet_material.Screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -61,7 +62,7 @@ fun Singup(navController: NavController){
         )
 
         Spacer(modifier = Modifier.padding(16.dp))
-        var userName by remember { mutableStateOf("") }
+        var userName by remember { mutableStateOf("Afsar Hossen Shuvo") }
         Text("Username", fontWeight = FontWeight.Medium, color = Color.Gray, fontSize = 15.sp)
         TextField(
             value = userName,
@@ -74,7 +75,7 @@ fun Singup(navController: NavController){
         )
 
         Spacer(modifier = Modifier.padding(16.dp))
-        var email by remember { mutableStateOf("") }
+        var email by remember { mutableStateOf("imshuvo97@gmail.com") }
         Text("Email", fontWeight = FontWeight.Medium, color = Color.Gray, fontSize = 15.sp)
         TextField(
             value = email,
@@ -143,7 +144,7 @@ fun Singup(navController: NavController){
 
         Spacer(modifier = Modifier.padding(16.dp))
         Button(
-            onClick = {navController.navigate("Shop") },
+            onClick = {navController.navigate("Main") },
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF53B175),
                 contentColor = Color.White
@@ -155,7 +156,7 @@ fun Singup(navController: NavController){
         Spacer(modifier = Modifier.padding(16.dp))
         Row(modifier = Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.Center) {
             Text(text = "Already have an account? ", fontWeight = FontWeight.Normal, color = Color.Black, fontSize = 15.sp)
-            Text(text = "Log In",fontWeight = FontWeight.Medium, color = Color(0xFF53B175), fontSize = 15.sp)
+            Text(text = "Log In",fontWeight = FontWeight.Medium, color = Color(0xFF53B175), fontSize = 15.sp,modifier = Modifier.clickable { navController.navigate("Login") })
         }
     }
 }

@@ -3,6 +3,7 @@ package com.example.componnet_material.Screen
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -15,17 +16,18 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.componnet_material.R
 import kotlin.random.Random
 
 @Composable
-@Preview(showBackground = true, showSystemUi = true)
-fun Explore() {
+fun Explore(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -66,19 +68,24 @@ fun Explore() {
             modifier = Modifier.fillMaxSize()
         ) {
             items(items) { item ->
-                CategoryCard(item)
+                CategoryCard(item,navController = navController)
             }
         }
     }
 }
 
 @Composable
-fun CategoryCard(item: AllItems) {
+fun CategoryCard(item: AllItems,navController: NavController) {
     Card(
         shape = RoundedCornerShape(16.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .height(180.dp),
+            .height(180.dp)
+            .clickable {
+                if (item.name == "Beverages") {
+                    navController.navigate("Beverages")
+                }
+            },
         border = BorderStroke(1.dp, item.color),
         colors = CardDefaults.cardColors(containerColor = item.color.copy(0.2f))
     ) {

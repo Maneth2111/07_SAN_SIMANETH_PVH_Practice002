@@ -1,6 +1,7 @@
 package com.example.componnet_material.Screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,13 +30,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.wear.compose.material3.Icon
 import androidx.wear.compose.material3.Text
 import com.example.componnet_material.R
 
 @Composable
-@Preview(showBackground = true, showSystemUi = true)
-fun Loging(){
+fun Loging(navController: NavController){
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
         Row(modifier = Modifier.fillMaxWidth().padding(60.dp),horizontalArrangement = Arrangement.Center) {
             Image(
@@ -97,7 +98,7 @@ fun Loging(){
 
         Spacer(modifier = Modifier.padding(16.dp))
         Button(
-            onClick = { /*TODO*/ },
+            onClick = { navController.navigate("Main") },
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF53B175),
                 contentColor = Color.White
@@ -109,7 +110,7 @@ fun Loging(){
         Spacer(modifier = Modifier.padding(16.dp))
         Row(modifier = Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.Center) {
             Text(text = "Don’t have an account? ", fontWeight = FontWeight.Normal, color = Color.Black, fontSize = 15.sp)
-            Text(text = "Singup",fontWeight = FontWeight.Medium, color = Color(0xFF53B175), fontSize = 15.sp)
+            Text(text = "Singup",fontWeight = FontWeight.Medium, color = Color(0xFF53B175), fontSize = 15.sp,modifier = Modifier.clickable { navController.navigate("SignUp") })
         }
 
 

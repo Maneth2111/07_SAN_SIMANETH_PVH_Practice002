@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
@@ -68,7 +69,12 @@ fun Filter(onApplyFilter: () -> Unit, onDismiss: () -> Unit) {
                         checked = selectedCategories.contains(category),
                         onCheckedChange = {
                             if (it) selectedCategories.add(category) else selectedCategories.remove(category)
-                        }
+                        },
+                        colors = CheckboxDefaults.colors(
+                            checkedColor = Color(0xFF53B175),
+                            uncheckedColor = Color.Gray
+
+                        )
                     )
                     Text(text = category)
                 }
@@ -94,7 +100,11 @@ fun Filter(onApplyFilter: () -> Unit, onDismiss: () -> Unit) {
                         checked = selectedBrands.contains(brand),
                         onCheckedChange = {
                             if (it) selectedBrands.add(brand) else selectedBrands.remove(brand)
-                        }
+                        },
+                        colors = CheckboxDefaults.colors(
+                            checkedColor = Color(0xFF53B175),
+                            uncheckedColor = Color.Gray
+                        )
                     )
                     Text(text = brand)
                 }
@@ -102,10 +112,11 @@ fun Filter(onApplyFilter: () -> Unit, onDismiss: () -> Unit) {
 
             Spacer(modifier = Modifier.height(24.dp))
             Button(
+                shape = RoundedCornerShape(12.dp),
                 onClick = {
                     onApplyFilter()
                 },
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50)),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF53B175)),
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text(text = "Apply Filter", color = Color.White)
