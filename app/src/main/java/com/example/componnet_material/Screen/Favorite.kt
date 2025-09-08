@@ -39,7 +39,7 @@ fun Favorite(){
                 shape = RoundedCornerShape(12.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(12.dp).padding(bottom = 30.dp)
+                    .padding(12.dp)
                     .height(56.dp)
             ) {
                 Text(text = "Add All To Cart", fontSize = 18.sp, color = Color.White)

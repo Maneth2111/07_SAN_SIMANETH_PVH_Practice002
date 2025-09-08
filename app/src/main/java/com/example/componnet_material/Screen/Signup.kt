@@ -30,13 +30,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.wear.compose.material3.Icon
 import androidx.wear.compose.material3.Text
 import com.example.componnet_material.R
 
 @Composable
-@Preview(showBackground = true, showSystemUi = true)
-fun Singup(){
+fun Singup(navController: NavController){
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
         Row(modifier = Modifier.fillMaxWidth().padding(60.dp),horizontalArrangement = Arrangement.Center) {
             Image(
@@ -143,7 +143,7 @@ fun Singup(){
 
         Spacer(modifier = Modifier.padding(16.dp))
         Button(
-            onClick = { /*TODO*/ },
+            onClick = {navController.navigate("Shop") },
             colors = ButtonDefaults.buttonColors(
                 containerColor = Color(0xFF53B175),
                 contentColor = Color.White

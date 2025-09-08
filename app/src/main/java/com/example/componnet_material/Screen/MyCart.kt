@@ -61,7 +61,7 @@ fun CartScreen() {
                 shape = RoundedCornerShape(12.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp).padding(bottom = 80.dp)
+                    .padding(16.dp)
                     .height(56.dp)
             ) {
                 Text(

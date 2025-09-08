@@ -26,11 +26,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.componnet_material.R
 
 @Composable
-@Preview(showBackground = true, showSystemUi = true)
-fun Welcome(){
+fun Welcome(navController: NavController){
     Column(modifier = Modifier.fillMaxSize()){
         Box(){
             Image(
@@ -58,7 +58,7 @@ fun Welcome(){
                     Text(text = "Ger your groceries in as fast as one hour", fontWeight = FontWeight.Medium, fontSize =16.sp, color = Color.Gray)
                     Spacer(modifier = Modifier.height(40.dp))
                     Button(
-                        onClick = {  },
+                        onClick = { navController.navigate("Login") },
                         modifier = Modifier.fillMaxWidth().height(50.dp),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = Color(0xFF53B175),

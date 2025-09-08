@@ -60,7 +60,7 @@ fun Loging(){
         )
 
         Spacer(modifier = Modifier.padding(16.dp))
-        var email by remember { mutableStateOf("") }
+        var email by remember { mutableStateOf("imshuvo97@gmail.com") }
         Text("Email", fontWeight = FontWeight.Medium, color = Color.Gray, fontSize = 15.sp)
         TextField(
             value = email,
@@ -92,7 +92,7 @@ fun Loging(){
         )
         Spacer(modifier = Modifier.padding(8.dp))
         Row(modifier = Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.End) {
-            Text("Forgot Password?", fontWeight = FontWeight.Medium, color = Color.Gray, fontSize = 15.sp, textAlign = TextAlign.End)
+            Text("Forgot Password?", fontWeight = FontWeight.Normal, color = Color.Black, fontSize = 15.sp, textAlign = TextAlign.End)
         }
 
         Spacer(modifier = Modifier.padding(16.dp))
@@ -108,7 +108,7 @@ fun Loging(){
         }
         Spacer(modifier = Modifier.padding(16.dp))
         Row(modifier = Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.Center) {
-            Text(text = "Don’t have an account? ", fontWeight = FontWeight.Medium, color = Color.Gray, fontSize = 15.sp)
+            Text(text = "Don’t have an account? ", fontWeight = FontWeight.Normal, color = Color.Black, fontSize = 15.sp)
             Text(text = "Singup",fontWeight = FontWeight.Medium, color = Color(0xFF53B175), fontSize = 15.sp)
         }
 

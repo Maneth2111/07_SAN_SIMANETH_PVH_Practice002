@@ -3,6 +3,7 @@ package com.example.componnet_material.Screen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ExitToApp
@@ -37,97 +38,100 @@ fun Account() {
         MenuItem("About", R.drawable.about)
     )
 
-    Column(
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Profile Picture and Name
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(vertical = 16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.pro),
-                contentDescription = "Profile Picture",
-                modifier = Modifier.size(64.dp)
-            )
-            Spacer(modifier = Modifier.width(16.dp))
-            Column {
-                Row {
-                    Text(
-                        text = "Penh Seyha",
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Spacer(modifier = Modifier.width(10.dp))
-                    IconButton(
-                        onClick = { /* Handle edit click */ },
-                        modifier = Modifier.size(24.dp)
-                    ) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.edit),
-                            contentDescription = "Edit",
-                            tint = Color(0xFF53B175),
-                            modifier = Modifier.size(18.dp)
+        item {
+            // Profile Picture and Name
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.pro),
+                    contentDescription = "Profile Picture",
+                    modifier = Modifier.size(64.dp)
+                )
+                Spacer(modifier = Modifier.width(16.dp))
+                Column {
+                    Row {
+                        Text(
+                            text = "Penh Seyha",
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold
                         )
+                        Spacer(modifier = Modifier.width(10.dp))
+                        IconButton(
+                            onClick = { /* Handle edit click */ },
+                            modifier = Modifier.size(24.dp)
+                        ) {
+                            Icon(
+                                painter = painterResource(id = R.drawable.edit),
+                                contentDescription = "Edit",
+                                tint = Color(0xFF53B175),
+                                modifier = Modifier.size(18.dp)
+                            )
+                        }
+
                     }
 
+                    Text(
+                        text = "penhseyha4980@gmail.com",
+                        fontSize = 14.sp,
+                        color = Color.Gray
+                    )
                 }
-
-                Text(
-                    text = "penhseyha4980@gmail.com",
-                    fontSize = 14.sp,
-                    color = Color.Gray
-                )
             }
-        }
 
-        HorizontalDivider(
-            modifier = Modifier.padding(vertical = 10.dp),
-            thickness = 1.dp,
-            color = Color.LightGray
-        )
-        menuItems.forEach { item ->
-            ProfileMenuItem(item)
             HorizontalDivider(
-                modifier = Modifier.padding(vertical = 10.dp),
+                modifier = Modifier.padding(vertical = 5.dp),
                 thickness = 1.dp,
                 color = Color.LightGray
             )
-        }
-        Spacer(modifier = Modifier.height(16.dp))
-        Button(
-            onClick = {  },
-            shape = RoundedCornerShape(12.dp),
-            modifier = Modifier.fillMaxWidth().height(50.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color(0xFFF2F3F2),
-                contentColor = Color(0xFF53B175)
-            )
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.logout),
-                    contentDescription = "Log Out",
-                    tint = Color(0xFF53B175),
-                )
-                Text(
-                    text = "Log Out",
-                    color = Color(0xFF53B175),
-                    textAlign = TextAlign.Center,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.fillMaxWidth()
+            menuItems.forEach { item ->
+                ProfileMenuItem(item)
+                HorizontalDivider(
+                    modifier = Modifier.padding(vertical = 5.dp),
+                    thickness = 1.dp,
+                    color = Color.LightGray
                 )
             }
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(
+                onClick = {  },
+                shape = RoundedCornerShape(12.dp),
+                modifier = Modifier.fillMaxWidth().height(50.dp),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFFF2F3F2),
+                    contentColor = Color(0xFF53B175)
+                )
+            ) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.logout),
+                        contentDescription = "Log Out",
+                        tint = Color(0xFF53B175),
+                    )
+                    Text(
+                        text = "Log Out",
+                        color = Color(0xFF53B175),
+                        textAlign = TextAlign.Center,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+            }
         }
-    }
+        }
+
 }
 
 @Composable
